@@ -1,4 +1,6 @@
-import { AfterContentInit, Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import { Component, OnInit, SimpleChanges, ChangeDetectorRef} from '@angular/core';
+
+import { JsonService } from '../json.service';
 
 @Component({
   selector: 'app-table',
@@ -6,39 +8,46 @@ import { AfterContentInit, Component, Input, OnChanges, OnInit, SimpleChanges} f
   styleUrls: ['./table.component.css']
 
 })
-export class TableComponent implements OnInit, OnChanges, AfterContentInit {
+export class TableComponent implements OnInit {
 
-  @Input() ubicacion : any;
-  @Input() datos : any;
-
+  dataArray=[];
+  racesArray=[];
+  seleccionadoOption;
   clasificacion:any=[];
   
-  constructor() { }
-  
-
-  ngOnChanges(changes: SimpleChanges): void {
-    
-   // console.log("Cambios"+JSON.stringify(changes, null, 2));
-    this.consultarDatos();
-  }
+  constructor(public json:JsonService) {}
 
 ngOnInit(): void {
-  console.log("NGINIT")
+  console.log("NGINIT");
 
-  this.consultarDatos();
+   //Obtenemos el json
+   this.json.getJson('../assets/data.json').subscribe((res : any) => {
+    //  console.log(res.data)
+      this.dataArray = res.data;
+
+      //Añadimos otro array solo carreras
+      this.dataArray[0].races.forEach(element => {
+        this.racesArray.push(element.name);
+      });
+      //Añadimos opcion global al principio
+      this.racesArray.unshift("Global")
+     
+
+      //Añadimos Default Global
+     this.seleccionadoOption=this.racesArray[0];
+
+     //Ejecutamos funcion para ordenacion
+     this.consultarDatos();
+    
+      });
     
 }
 
-  ngAfterContentInit(): void {
- 
- //   this.clasificacion.sort((a,b)=>a.time )
-
-  }
-
   consultarDatos():void{
-    let carreraName = this.ubicacion;
+    let carreraName = this.seleccionadoOption;
     let arrayACambiar:any=[];
 
+    //Eliminamos datos antes de ordenar nuevamente
     this.clasificacion=[];
     arrayACambiar.pop();
 
@@ -46,28 +55,31 @@ ngOnInit(): void {
       this.ordenarGlobal();
   }else{
 
-    this.datos.forEach(function(element){
+    this.dataArray.forEach(function(element){
   
       element.races.forEach(carrera => {
          if(carrera.name == carreraName){
           
+          //Pasamos time a secons
           let timeUser:any=0;
           let [hours, minutes, seconds] = carrera.time.split(':');
           let totalSeconds = (+hours) * 60 * 60 + (+minutes) * 60 + (+seconds);
+
+          //Quitamos milisegundos para poder hacer la resta
           timeUser=totalSeconds.toFixed(0);
 
-
-          let object = {picture:element.picture, name:element.name, team:element.team, carrera: carrera.name, time: timeUser }
+          //Creamos objeto con los datos a mostrar/usar
+          let object = {id:element._id,picture:element.picture, name:element.name, team:element.team, carrera: carrera.name, time: timeUser }
            arrayACambiar.push(object);
          
          }
       });
        
   });
-
+//Array a utilizar es el nuevo
   this.clasificacion=arrayACambiar;
   this.clasificacion=this.clasificacion.sort((a,b) => a.time - b.time);
-  console.log(this.clasificacion)
+
 
   }
   }
@@ -78,7 +90,7 @@ ngOnInit(): void {
     //Limpiamos array POrSI
     this.clasificacion=[];
 
-    this.datos.forEach(element => {
+    this.dataArray.forEach(element => {
 
       //Tiempo empleado segundos General
       let timeUser:any=0;
@@ -95,13 +107,17 @@ ngOnInit(): void {
       //Formateo los segundos
       timeUser=parseFloat(timeUser).toFixed(0);
 
-      let object = {picture:element.picture, name:element.name, team:element.team, carrera: "Global", time: timeUser }
+      let object = {id:element._id,picture:element.picture, name:element.name, team:element.team, carrera: "Global", time: timeUser }
       this.clasificacion.push(object);
       
     });
 
     this.clasificacion=this.clasificacion.sort((a,b) => a.time - b.time);
 
+  }
+
+  onChangeSelect():void{
+    this.consultarDatos();
   }
 
 }

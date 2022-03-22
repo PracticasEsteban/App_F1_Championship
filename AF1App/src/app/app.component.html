@@ -1,15 +1,7 @@
 <div class="titulo">
 <h1 class="textEspecial">F</h1><h1>ORMULA</h1><h1 class="textEspecial">1</h1><h1>&#169;</h1><h1 class="textEspecial">C</h1><h1>HAMPIONSHIP</h1>
 </div>
-<div class="positionSelect">
-<select name="miselect" [(ngModel)]="seleccionadoOption" class="button-right" (change)="selectcambiado()">
-  <option [value]="" disabled selected hidden>Elige la clasificacion</option>
-  <option [value]="item" *ngFor="let item of racesArray">{{item}}</option>
-</select>
-</div>
-  <div *ngIf="seleccionadoOption" >
-    <app-table [ubicacion]="seleccionadoOption" [datos]="dataArray"></app-table>
-  </div>
+
 
 
 <router-outlet></router-outlet>

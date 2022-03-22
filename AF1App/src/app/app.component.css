@@ -1,22 +1,4 @@
-.button-right{
-    height: 30px;
-    width: 120px;
-    background-color: rgb(5, 182, 5);
-    border-radius: 10px;
-    
-}
-.button-right:hover{
 
-      background-color: rgb(230, 230, 230);
-      
-  }
-
-  .positionSelect{
-
- 
-  margin-left:70%;
-
-  }
 
   .titulo{
       margin-left: 30%;
