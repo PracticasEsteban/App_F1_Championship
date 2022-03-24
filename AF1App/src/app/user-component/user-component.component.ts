@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-user-component',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserComponentComponent implements OnInit {
 
-  constructor() { }
+  id:any;
+
+  constructor(private router:ActivatedRoute) { }
 
   ngOnInit(): void {
+
+    this.router.paramMap.subscribe((params:ParamMap)=>{
+
+      this.id = params.get('id');
+
+    });
+    console.log("IDDDD "+this.id)
+
   }
 
 }

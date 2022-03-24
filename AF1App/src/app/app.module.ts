@@ -7,12 +7,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TableComponent } from './table/table.component';
 import { UserComponentComponent } from './user-component/user-component.component';
+import { BotonBackComponent } from './boton-back/boton-back.component';
+import { DriverCardComponent } from './driver-card/driver-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TableComponent,
-    UserComponentComponent
+    UserComponentComponent,
+    BotonBackComponent,
+    DriverCardComponent
   ],
   imports: [
     BrowserModule,

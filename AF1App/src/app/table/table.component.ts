@@ -1,4 +1,5 @@
 import { Component, OnInit, SimpleChanges, ChangeDetectorRef} from '@angular/core';
+import {Router} from '@angular/router';
 
 import { JsonService } from '../json.service';
 
@@ -15,7 +16,7 @@ export class TableComponent implements OnInit {
   seleccionadoOption;
   clasificacion:any=[];
   
-  constructor(public json:JsonService) {}
+  constructor(public json:JsonService, private router:Router) {}
 
 ngOnInit(): void {
   console.log("NGINIT");
@@ -116,8 +117,14 @@ ngOnInit(): void {
 
   }
 
+  //Cuando cambia el select volvemos a consultar datos
   onChangeSelect():void{
     this.consultarDatos();
+  }
+
+  //Navigate to user component
+  userInfo(id):void{
+   this.router.navigate(['/user',id]);
   }
 
 }
