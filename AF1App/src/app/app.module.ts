@@ -9,6 +9,8 @@ import { TableComponent } from './table/table.component';
 import { UserComponentComponent } from './user-component/user-component.component';
 import { BotonBackComponent } from './boton-back/boton-back.component';
 import { DriverCardComponent } from './driver-card/driver-card.component';
+import { TableUserComponent } from './table-user/table-user.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { DriverCardComponent } from './driver-card/driver-card.component';
     TableComponent,
     UserComponentComponent,
     BotonBackComponent,
-    DriverCardComponent
+    DriverCardComponent,
+    TableUserComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

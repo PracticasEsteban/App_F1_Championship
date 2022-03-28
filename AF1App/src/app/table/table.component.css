@@ -1,7 +1,10 @@
 .tableAncho{
     width: 50%;
     margin: auto;
-    border-radius: 50px;
+    
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-top-style: outset;
     text-align: center;
     
 }
@@ -49,3 +52,11 @@ display: flex;
   .inLINE{
       display: inline;
   }
+
+  table tr:nth-child(even) td{
+background-color: rgb(204, 204, 204);
+  }
+
+  table tr:hover{
+    color: rgb(5, 182, 5);
+      }

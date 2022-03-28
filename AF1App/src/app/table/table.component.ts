@@ -22,7 +22,7 @@ ngOnInit(): void {
   console.log("NGINIT");
 
    //Obtenemos el json
-   this.json.getJson('../assets/data.json').subscribe((res : any) => {
+   this.json.getJson('../../assets/data.json').subscribe((res : any) => {
     //  console.log(res.data)
       this.dataArray = res.data;
 

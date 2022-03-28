@@ -8,3 +8,7 @@
 
    
 }
+.botonRight:hover{
+    background-color: rgb(218, 231, 38);
+    color:black;
+}

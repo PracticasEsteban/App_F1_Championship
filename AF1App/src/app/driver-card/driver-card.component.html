@@ -1,1 +1,54 @@
-<p>driver-card works!</p>
+<div class="table-responsive tableAncho">
+    <table class="table">
+        <thead class="tableColorVede">
+        <tr>
+          <th scope="col">Driver Card</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>
+            <img [src]="piloto.picture" class="me-1 imgB" style="width: 100px; height: 100px; border-radius: 5px;">
+          </td>
+        </tr>
+        <tr>  
+          <td>
+            <p class="textAlt">Name</p>
+          </td>
+        </tr>
+        <tr>  
+          <td>{{ piloto.name }}</td>
+        </tr>
+        <tr>  
+          <td>
+              <p class="textAlt">Age</p>
+          </td>
+        </tr>
+        <tr>  
+          <td>{{piloto.age}}</td>
+        </tr>
+        <tr>  
+          <td>
+              <p class="textAlt">Team</p>
+          </td>
+        </tr>
+        <tr>  
+          <td>{{piloto.team}}</td>
+        </tr>
+        <tr>  
+          <td>
+              <p class="textAlt">GLOBAL RANKING</p>
+          </td>
+        </tr>
+        <tr>  
+          <td>
+            <img *ngIf="piloto.position==1" src="../../assets/numero-uno.png" class="me-1" style="width: 50px">
+            <img *ngIf="piloto.position==2" src="../../assets/numero-2.png" class="me-1" style="width: 50px">
+            <img *ngIf="piloto.position==3" src="../../assets/numero-3.png" class="me-1" style="width: 50px">
+            <p *ngIf="piloto.position>=4">{{piloto.position}}</p> 
+
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
