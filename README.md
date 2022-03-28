@@ -3,6 +3,6 @@
  
 ## Repositorios INFO:
 
-#### App_F1 
+#### AF1App
      
-        Componentes Angular con JSON. 
+        App con omponentes Angular y Json  
