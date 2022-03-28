@@ -1,11 +1,21 @@
 .tableAncho{
-    width: 200%;
-    margin-left: 300%;
-    margin-top: 0px;
-    border-radius: 30px;
-    text-align: center;
-    display:flex;
+   
+    display: flex;
     
+}
+
+table{
+    width: 600px;
+    margin-left: 700px;
+   font-size: 1.2em;
+    text-align: center;
+}
+.bordeIz{
+    border-top-left-radius: 50px;
+}
+
+.bordeDr{
+    border-bottom-right-radius: 50px;
 }
 .tableColorVede{
     background-color: rgb(5, 182, 5);
