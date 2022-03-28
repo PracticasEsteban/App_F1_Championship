@@ -62,7 +62,12 @@ background-color: rgb(204, 204, 204);
   }
 
 
-
-  table tr td:hover{
+  table tbody tr:hover{
+   
     color: rgb(5, 182, 5);
+    border-left: 4px solid  rgb(5, 182, 5);;
+          
       }
+ 
+
+  
