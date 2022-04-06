@@ -1,19 +1,27 @@
 package f1.esteban.api.service;
 
-import f1.esteban.api.interfas.PilotoRepository;
+import f1.esteban.api.jpa.PilotoRepository;
 import f1.esteban.api.model.Piloto;
-import lombok.AllArgsConstructor;
+import org.bson.types.ObjectId;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
-@AllArgsConstructor
+
 @Service
 public class PilotoService {
 
-    private final PilotoRepository pilotoRepository;
+    @Autowired
+    PilotoRepository pilotoRepository;
 
     public List<Piloto> getAllPilots() {
         return pilotoRepository.findAll();
+    }
+
+    public Optional<Piloto> getPilot( String id) {
+
+        return pilotoRepository.findById(id);
     }
 }

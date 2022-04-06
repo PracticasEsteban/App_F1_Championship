@@ -1,40 +1,34 @@
-package f1.esteban.api.model;
+package f1.esteban.api.DTO;
 
-import lombok.Data;
-import org.bson.types.ObjectId;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.FieldType;
-import org.springframework.data.mongodb.core.mapping.MongoId;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
-import java.io.Serializable;
-import java.util.ArrayList;
+
 import java.util.List;
 
-@Data
-@Document(collection = "pilotos")
-public class Piloto implements Serializable {
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class PilotoDTO {
 
-    @MongoId(value = FieldType.STRING)
     private String id;
     private String picture;
-    private int age;
+    private Integer age;
     private String name;
     private String team;
-    private List<Race> races= new ArrayList<>();
+    private List<RaceDTO> races= null;
+    private Integer time;
 
-
-    public Piloto() {
+    public PilotoDTO() {
     }
 
-    public Piloto(String id, String picture, int age, String name, String team, List<Race> races) {
+    public PilotoDTO(String id, String picture, Integer age, String name, String team, List<RaceDTO> races, Integer time) {
         this.id = id;
         this.picture = picture;
         this.age = age;
         this.name = name;
         this.team = team;
         this.races = races;
+        this.time = time;
     }
+
 
     public String getId() {
         return id;
@@ -52,11 +46,11 @@ public class Piloto implements Serializable {
         this.picture = picture;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
@@ -76,11 +70,19 @@ public class Piloto implements Serializable {
         this.team = team;
     }
 
-    public List<Race> getRaces() {
+    public List<RaceDTO> getRaces() {
         return races;
     }
 
-    public void setRaces(List<Race> races) {
+    public void setRaces(List<RaceDTO> races) {
         this.races = races;
+    }
+
+    public Integer getTime() {
+        return time;
+    }
+
+    public void setTime(Integer time) {
+        this.time = time;
     }
 }
