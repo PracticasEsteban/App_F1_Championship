@@ -26,21 +26,7 @@ public class RankingService {
 
     }
 
-
-    //Mapear ListaJPA A DTO
-
-    private List<PilotoDTO> map(List<PilotoDTO> lista){
-
-
-
-
-        return null;
-
-
-    }
-
-
-    //Retornar la lista
+    //Retornar la lista Global
 
     private List<PilotoDTO> getData(List<Piloto> lista){
 
@@ -68,7 +54,7 @@ public class RankingService {
 
 
             }
-
+            pilotoDTO.setId(piloto.getId());
             pilotoDTO.setPicture(piloto.getPicture());
             pilotoDTO.setName(piloto.getName());
             pilotoDTO.setTeam(piloto.getTeam());
@@ -80,7 +66,58 @@ public class RankingService {
 
         }
 
-        //Ordenamos lista
+        //Ordenamos lista por tiempo
+        listaDTO.sort(Comparator.comparingInt(PilotoDTO::getTime));
+
+        //Borramos atributo Lista time
+
+        for(PilotoDTO pilotoDTO :listaDTO){
+
+            pilotoDTO.setTime(null);
+        }
+        //Retornamos lista ordenada
+        return listaDTO;
+
+    }
+
+    //Retornar lista carrera
+    public List<PilotoDTO> getRankingCarrera(String carrera) {
+
+        List<Piloto> lista= this.pilotoService.getAllPilots();
+
+
+        List<PilotoDTO> listaDTO= new ArrayList<>();
+
+        for(Piloto piloto :lista) {
+
+            PilotoDTO pilotoDTO=new PilotoDTO();
+
+            for (Race race :piloto.getRaces()){
+
+                //Verificamos si la carrera es la que hay que retornar
+                if (race.getName().equalsIgnoreCase(carrera)){
+
+                    String[] part= race.getTime().split(":");
+                    int hour=Integer.parseInt(part[0]);
+                    int minute=Integer.parseInt(part[1]);
+                    int second=(int) Float.parseFloat(part[2]);
+
+                    int temp;
+                    temp = second + (60 * minute) + (3600 * hour);
+
+                    //Añadimos los campos necesarios
+                    pilotoDTO.setPicture(piloto.getPicture());
+                    pilotoDTO.setName(piloto.getName());
+                    pilotoDTO.setTeam(piloto.getTeam());
+                    pilotoDTO.setTime(temp);
+
+                    listaDTO.add(pilotoDTO);
+                }
+
+            }
+        }
+
+        //Ordenamos lista por tiempo
         listaDTO.sort(Comparator.comparingInt(PilotoDTO::getTime));
 
         //Borramos atributo Lista time
@@ -91,7 +128,5 @@ public class RankingService {
         }
 
         return listaDTO;
-
     }
-
 }

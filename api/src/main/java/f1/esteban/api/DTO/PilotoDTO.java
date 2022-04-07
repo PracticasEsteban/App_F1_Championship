@@ -15,11 +15,12 @@ public class PilotoDTO {
     private String team;
     private List<RaceDTO> races= null;
     private Integer time;
+    private Integer posicion;
 
     public PilotoDTO() {
     }
 
-    public PilotoDTO(String id, String picture, Integer age, String name, String team, List<RaceDTO> races, Integer time) {
+    public PilotoDTO(String id, String picture, Integer age, String name, String team, List<RaceDTO> races, Integer time, Integer posicion) {
         this.id = id;
         this.picture = picture;
         this.age = age;
@@ -27,6 +28,7 @@ public class PilotoDTO {
         this.team = team;
         this.races = races;
         this.time = time;
+        this.posicion = posicion;
     }
 
 
@@ -84,5 +86,13 @@ public class PilotoDTO {
 
     public void setTime(Integer time) {
         this.time = time;
+    }
+
+    public Integer getPosicion() {
+        return posicion;
+    }
+
+    public void setPosicion(Integer posicion) {
+        this.posicion = posicion;
     }
 }

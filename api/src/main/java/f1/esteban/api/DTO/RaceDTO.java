@@ -7,13 +7,15 @@ public class RaceDTO {
 
     private String name;
     private String time;
+    private Integer position;
 
     public RaceDTO() {
     }
 
-    public RaceDTO(String name, String time) {
+    public RaceDTO(String name, String time, Integer position) {
         this.name = name;
         this.time = time;
+        this.position=position;
     }
 
     public String getName() {
@@ -30,5 +32,13 @@ public class RaceDTO {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public Integer getPosition() {
+        return position;
+    }
+
+    public void setPosition(Integer position) {
+        this.position = position;
     }
 }
