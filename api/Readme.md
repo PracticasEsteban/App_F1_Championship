@@ -19,4 +19,4 @@
         
         localhost:8080/ranking/carrera?carrera=Gp Spain -> Get del array Piloto :  picture, name, team. Ordenado por tiempo de la carrera especifica.
         
-        localhost:8080/driver/5f3a3c5f65e328c1a1263781 -> Get del objeto piloto con campos -> "id" ,"picture","age","name", "team", "posicion" , "races"->[{name, time,            position}] 
+        localhost:8080/driver/5f3a3c5f65e328c1a1263781 -> Get del objeto piloto con campos -> "id" ,"picture","age","name", "team", "posicion" , "races"->[{name, time,   position}] 
