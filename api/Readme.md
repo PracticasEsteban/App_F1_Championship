@@ -12,7 +12,7 @@
         DatabaseName -> af1bd
         CollectionName -> pilotos
         
-        En la collection pilotos se encuentra importado en Json.
+        En la collection pilotos se encuentra importado el Json.
         
 #### Api REST
 
