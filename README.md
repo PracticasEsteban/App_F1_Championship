@@ -9,7 +9,7 @@
         
 #### AF1AppApiRest
      
-        App con omponentes Angular utilizando API SpringBoot        
+        App con componentes Angular utilizando API SpringBoot        
         
 #### Api SpringBoot
     
