@@ -1,12 +1,12 @@
 .tableAncho{
    
+  
     display: flex;
-    
 }
 
 table{
     width: 600px;
-    margin-left: 700px;
+    margin-left: 500PX;
    font-size: 1.2em;
     text-align: center;
 }

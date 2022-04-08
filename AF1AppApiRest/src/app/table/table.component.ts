@@ -56,7 +56,7 @@ consultarDatos():void{
 
   //Navigate to user component
   userInfo(id:any):void{
-   this.router.navigate(['/user',id]);
+   this.router.navigate(['/piloto',id]);
   }
 
 }

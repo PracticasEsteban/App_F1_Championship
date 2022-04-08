@@ -115,9 +115,9 @@ public class DriverService {
                     String[] part = race.getTime().split(":");
                     int hour = Integer.parseInt(part[0]);
                     int minute = Integer.parseInt(part[1]);
-                    int second = (int) Float.parseFloat(part[2]);
+                    float second =  Float.parseFloat(part[2]);
 
-                    int temp;
+                    float temp;
                     temp = second + (60 * minute) + (3600 * hour);
 
                     pilotoDTO.setId(piloto.getId());
@@ -130,7 +130,7 @@ public class DriverService {
         }
 
         //Ordenamos lista
-        listaDTO.sort(Comparator.comparingInt(PilotoDTO::getTime));
+        listaDTO.sort(Comparator.comparing(PilotoDTO::getTime));
 
         Integer position = 0;
 

@@ -14,13 +14,13 @@ public class PilotoDTO {
     private String name;
     private String team;
     private List<RaceDTO> races= null;
-    private Integer time;
+    private Float time;
     private Integer posicion;
 
     public PilotoDTO() {
     }
 
-    public PilotoDTO(String id, String picture, Integer age, String name, String team, List<RaceDTO> races, Integer time, Integer posicion) {
+    public PilotoDTO(String id, String picture, Integer age, String name, String team, List<RaceDTO> races, Float time, Integer posicion) {
         this.id = id;
         this.picture = picture;
         this.age = age;
@@ -80,11 +80,11 @@ public class PilotoDTO {
         this.races = races;
     }
 
-    public Integer getTime() {
+    public Float getTime() {
         return time;
     }
 
-    public void setTime(Integer time) {
+    public void setTime(Float time) {
         this.time = time;
     }
 

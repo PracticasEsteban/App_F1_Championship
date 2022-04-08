@@ -37,7 +37,7 @@ public class RankingService {
 
             PilotoDTO pilotoDTO=new PilotoDTO();
 
-            int timeUser=0;
+            float timeUser=0;
 
 
             for (Race race :piloto.getRaces()){
@@ -45,9 +45,9 @@ public class RankingService {
                 String[] part= race.getTime().split(":");
                 int hour=Integer.parseInt(part[0]);
                 int minute=Integer.parseInt(part[1]);
-                int second=(int) Float.parseFloat(part[2]);
+                float second= Float.parseFloat(part[2]);
 
-                int temp;
+                float temp;
                 temp = second + (60 * minute) + (3600 * hour);
 
                 timeUser+=temp;
@@ -67,7 +67,7 @@ public class RankingService {
         }
 
         //Ordenamos lista por tiempo
-        listaDTO.sort(Comparator.comparingInt(PilotoDTO::getTime));
+        listaDTO.sort(Comparator.comparing(PilotoDTO::getTime));
 
         //Borramos atributo Lista time
 
@@ -100,9 +100,9 @@ public class RankingService {
                     String[] part= race.getTime().split(":");
                     int hour=Integer.parseInt(part[0]);
                     int minute=Integer.parseInt(part[1]);
-                    int second=(int) Float.parseFloat(part[2]);
+                    float second=Float.parseFloat(part[2]);
 
-                    int temp;
+                    float temp;
                     temp = second + (60 * minute) + (3600 * hour);
 
                     //Añadimos los campos necesarios
@@ -118,7 +118,8 @@ public class RankingService {
         }
 
         //Ordenamos lista por tiempo
-        listaDTO.sort(Comparator.comparingInt(PilotoDTO::getTime));
+
+        listaDTO.sort(Comparator.comparing(PilotoDTO::getTime));
 
         //Borramos atributo Lista time
 
