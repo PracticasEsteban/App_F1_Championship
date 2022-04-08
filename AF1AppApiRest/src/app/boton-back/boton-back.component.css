@@ -1,0 +1,14 @@
+.botonRight{
+    height: 30px;
+    width: 120px;
+    background-color: rgb(5, 182, 5);
+    border-radius: 5px;
+    margin-left:120%;
+    color: white;
+
+   
+}
+.botonRight:hover{
+    background-color: rgb(218, 231, 38);
+    color:black;
+}

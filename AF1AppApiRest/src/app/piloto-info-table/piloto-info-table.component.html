@@ -1,0 +1,26 @@
+
+<div class="table-responsive tableAncho">
+    <table>
+        <thead class="tableColorVede">
+        <tr>
+          <th scope="col" class="bordeIz"><i>Race</i></th>
+          <th scope="col"><i>Position</i></th>
+          <th scope="col" class="bordeDr"><i>Time</i></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of piloto.races; index as i" >
+          <td>
+            {{item.race}}
+          </td>
+          <td>
+            <img *ngIf="item.position==1" src="../../assets/numero-uno.png" class="me-1" style="width: 25px">
+            <img *ngIf="item.position==2" src="../../assets/numero-2.png" class="me-1" style="width: 25px">
+            <img *ngIf="item.position==3" src="../../assets/numero-3.png" class="me-1" style="width: 25px">
+            <p *ngIf="item.position>=4">{{item.position}}</p>
+          </td>
+          <td>{{ item.time }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>

@@ -1,0 +1,27 @@
+.tableAncho{
+   
+    display: flex;
+    
+}
+
+table{
+    width: 600px;
+    margin-left: 700px;
+   font-size: 1.2em;
+    text-align: center;
+}
+.bordeIz{
+    border-top-left-radius: 50px;
+}
+
+.bordeDr{
+    border-bottom-right-radius: 50px;
+}
+.tableColorVede{
+    background-color: rgb(5, 182, 5);
+    color: rgb(236, 235, 235);
+}
+
+table tr:nth-child(even) td{
+    background-color: rgb(204, 204, 204);
+      }
