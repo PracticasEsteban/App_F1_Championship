@@ -1,9 +1,9 @@
 
 
   .titulo{
+    display: -webkit-flex;
     margin-left: 32%;
-  
-    display: flex;
+    
     margin-bottom: 20px;
     
 
