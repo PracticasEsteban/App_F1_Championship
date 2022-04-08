@@ -1,0 +1,30 @@
+.tableAncho{
+    width: 150%;
+    margin-left: 250%;
+    border-radius: 50px;
+    text-align: center;
+    margin-top: 0px;
+    margin-right: 50%;
+    border: 2px solid;
+    border-color: rgb(5, 182, 5);
+    display: flex;
+}
+.tableColorVede{
+    background-color: rgb(5, 182, 5);
+    color: rgb(236, 235, 235);
+}
+
+.textAlt{
+    color: rgb(5, 182, 5);
+    padding-bottom: 0%;
+    margin-bottom: 0%;
+}
+
+p{
+    padding-top: 0%;
+    margin-top: 0%;
+}
+
+.imgB{
+    border-image: 20round;
+}
