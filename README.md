@@ -5,7 +5,7 @@
 
 #### AF1App
      
-        App con omponentes Angular y Json  
+        App con componentes Angular y Json  
         
 #### AF1AppApiRest
      
