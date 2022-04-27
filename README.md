@@ -2,8 +2,7 @@
  Beca Angular + StencilJS + Java Spring Boot
  
  
-_Corregir SpringBoot, AF!AppApiRest y Stencil Components _
-***PD: ya terminare la APP con Stencil, antes queiro hacer la segunda ***
+***Corregir SpringBoot, AF!AppApiRest y Stencil Components . PD: ya terminare la APP con Stencil, antes queiro hacer la segunda***
  
 ## Repositorios INFO:
 
